@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script>
+            let javascriptChannel = "MyHomePageChannel";
+            function postMessage(type, result)  {
+                window[javascriptChannel].postMessage(JSON.stringify({
+                    type:type,
+                    result:result
+                }));
+            }
+        </script>
+    </head>
+    <body>
+        <button style="font-size:100px" onclick="postMessage('FromJavascriptEvent.PRINT',{'testKey':'testValue'})">Send To Dart</button>
+        <p style="font-size:100px">Index</p>
+    </body>
+</html>
